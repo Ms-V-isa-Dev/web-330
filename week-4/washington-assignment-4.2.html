@@ -15,25 +15,36 @@
     <title>HTTP GET and POST Operations</title>
 
     <!-- jQuery reference -->
-    <script
+    <script>
       type="text/javascript"
       src="https://gc.kis.v2.scr.kaspersky-labs.com/5DACB2B0-5003-6543-8B39-D8EE6E4FC44C/main.js"
       charset="UTF-8"
-    ></script>
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
 
     <h3>HTTP GET Request</h3>
 
+    <!-- Visual studio code has built in hot keys like: button#get1
+          this will create a button with an id of 1. This button will
+          be used to make a request to some server API to retrieve back
+          a random animal breed. -->
     <button id="get1">Get random Breed</button>
 
+    <!-- In the body of this function we will create and register an onclick
+          event for the get1 button. -->
     <script>
       $(function() {
-
+        /* This says find the get 1 button, when you find it register a click
+            event. */
         $("#get1").click(function (){
-
+        /* In the body of this click event were going to envoke a get request to
+            the url we specified earlier. We pass in the url by saying get and we
+            will enter a call back function for the returned data the log the return
+            data to the console.*/
           $.get('https://dog.ceo/api/breeds/image/random', function(data, status){
+            /* JSON stringify takes a response and converts it to a json object or string*/
             console.log('Data: ' + JSON.stringify(data) + '\nStatus: ' + status);
           })
 
