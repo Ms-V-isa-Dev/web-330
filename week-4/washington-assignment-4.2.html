@@ -1,0 +1,45 @@
+<!--
+============================================
+; Title: Assignment 4.2
+; Author: professor krasso
+; Date: 03/13/2020
+; Modified by: Verlee Washington
+; Description: Creating HTTP GET and POST Operations
+;===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTTP GET and POST Operations</title>
+
+    <!-- jQuery reference -->
+    <script
+      type="text/javascript"
+      src="https://gc.kis.v2.scr.kaspersky-labs.com/5DACB2B0-5003-6543-8B39-D8EE6E4FC44C/main.js"
+      charset="UTF-8"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <h3>HTTP GET Request</h3>
+
+    <button id="get1">Get random Breed</button>
+
+    <script>
+      $(function() {
+
+        $("#get1").click(function (){
+
+          $.get('https://dog.ceo/api/breeds/image/random', function(data, status){
+            console.log('Data: ' + JSON.stringify(data) + '\nStatus: ' + status);
+          })
+
+        });
+
+      });
+    </script>
+  </body>
+</html>
