@@ -1,0 +1,58 @@
+<!--
+============================================
+; Title: Assignment 5.2
+; Author: professor krasso
+; Date: 03/20/2020
+; Modified by: Verlee Washington
+; Description: Controlling the access and
+; context behind an object.
+;===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise 5.2 - The Proxy Pattern</title>
+
+    <!-- jquery Reference Library -->
+    <script
+      type="text/javascript"
+      src="https://gc.kis.v2.scr.kaspersky-labs.com/5DACB2B0-5003-6543-8B39-D8EE6E4FC44C/main.js"
+      charset="UTF-8"
+    ></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Home</a>
+    </nav>
+    <br /><br />
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Exercise 5.2 - The Proxy Pattern</h2>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" id="btnPreviewProxy">Preview Proxy</button>
+    <br />
+    <span id="spanProxyResults"></span>
+
+    <script>
+     $(function() {
+      var suv = {
+        make: "GMC",
+        model: "Youkon",
+        display: function(){
+          // Clear the span tag before adding new content
+          $("#spanProxyResults").html("");
+          $("#spanProxyResults").append("<br />Make: "+this.make+"<br />"+"Model: "+this.model);
+        }
+      };
+
+      $("#btnPreviewProxy").click($.proxy(suv, "display"));
+    });
+    </script>
+  </body>
+</html>
