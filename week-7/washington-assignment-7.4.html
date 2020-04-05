@@ -1,0 +1,103 @@
+<!--
+============================================
+; Title: Assignment 7.4
+; Author: professor krasso
+; Date: 04/03/2020
+; Modified by: Verlee Washington
+; Description: Basic demonstration of creating
+; function view models, this is the most typical.
+;===========================================
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Exercise 7.4</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"
+    />
+
+    <!-- JavaScript Libraries -->
+    <script
+      type="text/javascript"
+      src="https://gc.kis.v2.scr.kaspersky-labs.com/5DACB2B0-5003-6543-8B39-D8EE6E4FC44C/main.js"
+      charset="UTF-8"></script>
+
+    <script src="../knockout-3.5.1.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div role="main" class="container">
+      <br/><br/>
+
+      <h2>Other bindings</h2>
+
+      <table class="table table-light table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Title </th>
+            <th>Description</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+
+        <tbody data-bind="foreach: tutorials">
+          <tr>
+            <td data-bind="text: title" style="max-width: 75px;"></td>
+            <td data-bind="text: description" style="max-width: 125px;"></td>
+            <td><a data-bind="attr: {href: linkUrl}" target="_blank" style="max-width: 125px;"></a></td>
+          </tr>
+        </tbody>
+      </table>
+      <br/>
+    </div>
+
+    <script>
+      function TutorialViewModel(){
+
+        this.tutorials = ko.observableArray([
+          {title: "JavaScript Tutorials", description: "This site has tutorials based on levels of comfort with JavaScript.Theres courses and coding practices.", linkUrl: ("https://www.geeksforgeeks.org/javascript-tutorial/")},
+
+          {title: "The Best JavaScript Tutorials", description: "Learn to code from home with 2000 hours of curriculum. Free code camp has in-depth YouTube tutorials.", linkUrl: ("https://www.freecodecamp.org/news/best-javascript-tutorial/")},
+
+          {title: "JavaScript Tutorial", description: "This tutorial will teach you JavaScript from basic to advanced, with multiple practice examples.", linkUrl: ("https://www.w3schools.com/js/")},
+
+          {title: "JavaScript", description: "Linked In has professional how to videos and practice code from expert to beginner.", linkUrl: ("https://www.linkedin.com/learning/topics/javascript")},
+
+          {title: "JavaScript Quarantine", description: "This subreddit is for anyone who wants to learn JavaScript or help others do so, in collaboration with their online community.", linkUrl: ("https://www.reddit.com/r/learnjavascript/")}
+        ]);
+      };
+
+      ko.applyBindings(new TutorialViewModel());
+    </script>
+
+  </body>
+</html>
