@@ -1,0 +1,102 @@
+<!--
+============================================
+; Title: Assignment 7.2
+; Author: professor krasso
+; Date: 04/03/2020
+; Modified by: Verlee Washington
+; Description: Creating the if binding
+;===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Exercise 7.2</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"/>
+
+    <!-- JavaScript Libraries -->
+    <script
+      type="text/javascript"
+      src="https://gc.kis.v2.scr.kaspersky-labs.com/5DACB2B0-5003-6543-8B39-D8EE6E4FC44C/main.js"
+      charset="UTF-8"></script>
+    <script src="../knockout-3.5.1.js"></script>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container" role="main">
+      <br /><br />
+
+      <h2>Example 2</h2>
+      <br />
+      <div class="form-group">
+        <label for="txtFirstName">First Name:</label>
+        <input type="text" class="form-control"
+          placeholder="Please enter your first name."
+          data-bind="value: firstName" id="txtFirstName"/>
+      </div>
+
+      <div data-bind="if: name">
+        <div class="form-group">
+          <label for="txtLastName">Last Name:</label>
+          <input type="text" class="form-control"
+          placeholder="Please enter your last name."
+          data-bind="value: lastName" id="txtLastName">
+        </div>
+      </div>
+
+      <div data-bind="if: lastName">
+        <h2><span id="fNameOutput" class="alert success"
+           data-bind="text: displayFullName"></span></h2>
+      </div>
+    </div>
+
+    <script>
+    </script>
+
+    <script>
+      function PersonViewModel(){
+        this.firstName = ko.observable("");
+        this.lastName = ko.observable("");
+        this.name = ko.pureComputed(function(){
+          return this.firstName();
+        }, this);
+
+        this.displayFullName=ko.pureComputed(function(){
+          return this.firstName() + " " + this.lastName();
+        }, this);
+
+      };
+
+      ko.applyBindings(new PersonViewModel());
+    </script>
+  </body>
+</html>
