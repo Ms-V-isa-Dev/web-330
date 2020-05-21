@@ -1,0 +1,36 @@
+NoSQL data structures
+
+/* A.
+In users
+*/
+{
+	"id":1, 
+	"name":"Some Body"
+}
+// In roles 
+{
+	"rolesId": 05, 
+	"userId":1
+}
+
+/* B.
+In users
+*/
+{
+	"id":1, 
+	"name":"Some Body",
+	"birthdate: "12/07/2000"
+}
+
+/* C.
+In users
+*/ 
+{
+	"id":2, 
+	"name":"Some Body"
+}
+// In dependents
+{
+	"dependentsId": 08, 
+	"userId":2
+}
